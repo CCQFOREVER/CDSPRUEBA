@@ -1,12 +1,33 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Mi Página Web</title>
-    <link rel="stylesheet" href="styles.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Autenticación con Google</title>
+    <!-- Agrega la biblioteca de Google Sign-In -->
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+    <!-- Configura el cliente de Google Sign-In -->
+    <meta name="google-signin-client_id" content="TU_CLIENT_ID.apps.googleusercontent.com">
 </head>
 <body>
-    <h1>Hola, Mundo!</h1>
-    <p>¡Esta es mi primera página web en GitHub Pages!</p>
+    <h1>Autenticación con Google</h1>
+    <!-- Botón de inicio de sesión con Google -->
+    <div class="g-signin2" data-onsuccess="onSignIn"></div>
+
+    <script>
+        // Función que se ejecuta cuando el usuario inicia sesión con Google
+        function onSignIn(googleUser) {
+            // Obtiene la información del usuario
+            var profile = googleUser.getBasicProfile();
+            
+            // Muestra la información del usuario
+            console.log('ID: ' + profile.getId());
+            console.log('Nombre: ' + profile.getName());
+            console.log('Imagen URL: ' + profile.getImageUrl());
+            console.log('Email: ' + profile.getEmail());
+
+            // Puedes realizar más acciones aquí, como enviar la información del usuario al servidor, etc.
+        }
+    </script>
 </body>
 </html>
